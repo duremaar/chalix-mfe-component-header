@@ -1,7 +1,7 @@
 {
-  "name": "@chalix/frontend-component-header",
-  "version": "1.0.0",
-  "description": "The Chalix header component for Open edX with Vietnamese localization",
+  "name": "@edx/frontend-component-header",
+  "version": "1.0.0-semantically-released",
+  "description": "The standard header for Open edX",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
@@ -71,3 +71,4 @@
     "react-router-dom": "^6.14.2"
   }
 }
+
