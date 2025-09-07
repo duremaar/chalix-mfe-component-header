@@ -88,7 +88,9 @@ jobs:
         fi
 
     - name: Publish to GitHub Packages (Public)
-      run: npm publish --access public
+      run: |
+        # Publish with explicit public access
+        npm publish --access public --registry https://npm.pkg.github.com
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -97,3 +99,4 @@ jobs:
         PACKAGE_VERSION=$(npm pkg get version | tr -d '"')
         echo "Published version: $PACKAGE_VERSION"
         echo "::notice title=Published::Package @alimento-team/chalix-frontend-component-header@$PACKAGE_VERSION published successfully"
+        echo "::warning title=Manual Step Required::Please make the package public manually at https://github.com/Alimento-Team/chalix-mfe-component-header/packages"
