@@ -1,45 +1,63 @@
 .chalix-header {
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(178, 178, 178, 1);
 
     .chalix-header-container {
-        max-width: 1200px;
+        max-width: 1440px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 42px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
     }
 
-    /* Top Blue Section */
+    /* Top Blue Section - matches Figma exactly */
     .chalix-header-top {
         background-color: #3494c8;
         color: white;
-        padding: 15px 0;
+        height: 60px;
+        width: 100%;
+
+        .chalix-header-container {
+            height: 100%;
+        }
 
         .chalix-header-title h1 {
             margin: 0;
-            font-size: 18px;
-            font-weight: bold;
-            line-height: 1.2;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            /* SemiBold */
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+            font-variation-settings: 'wdth' 100;
         }
 
         .chalix-header-user-section {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
 
             .user-name {
-                font-size: 16px;
-                font-weight: 500;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 600;
+                /* SemiBold */
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                font-variation-settings: 'wdth' 100;
             }
 
-            .user-avatar,
-            .notification-icon {
+            .user-avatar {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
+                background-color: #99abc8;
+                border-radius: 30px;
+                width: 50px;
+                height: 50px;
 
                 &:hover {
                     opacity: 0.8;
@@ -52,48 +70,76 @@
                 border-radius: 50%;
                 object-fit: cover;
             }
+
+            .notification-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                width: 35px;
+                height: 35px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
         }
     }
 
-    /* Bottom White Section with Navigation */
+    /* Bottom White Section with Navigation - matches Figma exactly */
     .chalix-header-bottom {
         background-color: white;
-        padding: 15px 0;
-        border-bottom: 1px solid #e0e0e0;
+        height: 60px;
+        border-bottom: 2px solid #b2b2b2;
+
+        .chalix-header-container {
+            height: 100%;
+            padding: 0 48px;
+        }
 
         .chalix-nav {
             display: flex;
-            gap: 30px;
             align-items: center;
+            height: 100%;
 
             .nav-item {
                 display: flex;
-                flex-direction: column;
                 align-items: center;
-                gap: 5px;
+                gap: 10px;
                 cursor: pointer;
-                padding: 10px;
-                border-radius: 8px;
+                padding: 0 20px;
+                height: 43px;
+                border-right: 1px solid #394047;
+                color: #394047;
                 transition: all 0.2s ease;
-                color: #666;
 
                 &:hover {
                     background-color: #f5f5f5;
-                    color: #3494c8;
                 }
 
                 &.active {
-                    color: #3494c8;
                     background-color: #e3f2fd;
                 }
 
                 span {
-                    font-size: 14px;
-                    font-weight: 500;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 600;
+                    /* SemiBold */
+                    font-size: 20px;
+                    line-height: 24px;
+                    letter-spacing: 0.5px;
+                    font-variation-settings: 'wdth' 100;
+                    white-space: nowrap;
                 }
 
                 svg {
-                    transition: color 0.2s ease;
+                    width: 30px;
+                    height: 30px;
+                    flex-shrink: 0;
+                }
+
+                &:last-child {
+                    border-right: none;
                 }
             }
         }
@@ -101,22 +147,30 @@
         .chalix-search-bar {
             display: flex;
             align-items: center;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            padding: 0 20px;
-            min-width: 300px;
+            background-color: white;
+            border: 2px solid #99abc8;
+            border-radius: 28px;
+            padding: 0;
+            width: 398px;
+            height: 40px;
+            max-width: 720px;
 
             .search-input {
                 border: none;
                 background: none;
                 outline: none;
-                padding: 12px 0;
+                padding: 0 20px;
                 flex: 1;
-                font-size: 14px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                font-variation-settings: 'wdth' 100;
+                color: rgba(73, 69, 79, 0.8);
 
                 &::placeholder {
-                    color: #999;
+                    color: rgba(73, 69, 79, 0.8);
                 }
             }
 
@@ -124,14 +178,22 @@
                 border: none;
                 background: none;
                 cursor: pointer;
-                padding: 8px;
+                padding: 8px 12px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: #666;
+                color: rgba(73, 69, 79, 0.8);
+                border-radius: 100px;
+                width: 40px;
+                height: 40px;
 
                 &:hover {
-                    color: #3494c8;
+                    background-color: rgba(0, 0, 0, 0.04);
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
                 }
             }
         }
@@ -142,7 +204,7 @@
 @media (max-width: 768px) {
     .chalix-header {
         .chalix-header-container {
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         .chalix-header-top {
@@ -151,10 +213,30 @@
             }
 
             .chalix-header-user-section {
-                gap: 10px;
+                gap: 15px;
 
                 .user-name {
                     font-size: 14px;
+                }
+
+                .user-avatar {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .user-avatar-img {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .notification-icon {
+                    width: 30px;
+                    height: 30px;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
                 }
             }
         }
@@ -163,18 +245,25 @@
             .chalix-header-container {
                 flex-direction: column;
                 gap: 15px;
+                padding: 10px 20px;
+                height: auto;
             }
 
             .chalix-nav {
                 gap: 20px;
                 justify-content: center;
                 flex-wrap: wrap;
+                height: auto;
 
                 .nav-item {
-                    gap: 3px;
+                    gap: 5px;
+                    border-right: none;
+                    padding: 8px 15px;
+                    height: auto;
+                    flex-direction: column;
 
                     span {
-                        font-size: 12px;
+                        font-size: 14px;
                     }
 
                     svg {
@@ -185,7 +274,6 @@
             }
 
             .chalix-search-bar {
-                min-width: 250px;
                 width: 100%;
                 max-width: 400px;
             }
@@ -198,6 +286,25 @@
         .chalix-header-top {
             .chalix-header-title h1 {
                 font-size: 14px;
+                line-height: 18px;
+            }
+
+            .chalix-header-user-section {
+                gap: 10px;
+
+                .user-name {
+                    font-size: 12px;
+                }
+
+                .user-avatar {
+                    width: 35px;
+                    height: 35px;
+                }
+
+                .user-avatar-img {
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
 
@@ -207,7 +314,7 @@
 
                 .nav-item {
                     span {
-                        font-size: 11px;
+                        font-size: 12px;
                     }
 
                     svg {
@@ -215,6 +322,10 @@
                         height: 20px;
                     }
                 }
+            }
+
+            .chalix-search-bar {
+                width: 280px;
             }
         }
     }
