@@ -1,13 +1,16 @@
 {
   "name": "@chalix/frontend-component-header",
-  "version": "1.0.0-semantically-released",
+  "version": "1.0.0",
   "description": "The standard header for Open edX",
   "main": "dist/index.js",
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "@chalix:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "scripts": {
     "build": "make build",
+    "prepare": "npm run build",
     "i18n_extract": "fedx-scripts formatjs extract",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "lint:fix": "fedx-scripts eslint --fix --ext .js --ext .jsx .",
@@ -22,14 +25,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-component-header.git"
+    "url": "git+https://github.com/Alimento-Team/chalix-mfe-component-header.git"
   },
-  "author": "edX",
+  "author": "Alimento-Team",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/openedx/frontend-component-header/issues"
+    "url": "https://github.com/Alimento-Team/chalix-mfe-component-header/issues"
   },
-  "homepage": "https://github.com/openedx/frontend-component-header#readme",
+  "homepage": "https://github.com/Alimento-Team/chalix-mfe-component-header#readme",
   "devDependencies": {
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
     "@edx/browserslist-config": "^1.1.1",

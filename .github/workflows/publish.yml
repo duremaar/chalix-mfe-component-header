@@ -1,0 +1,99 @@
+name: Build and Publish to GitHub Packages
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests
+      run: npm test
+
+    - name: Build component
+      run: make build
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist-files
+        path: dist/
+
+  publish:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
+    
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@chalix'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build component
+      run: make build
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: dist-files
+        path: dist/
+
+    - name: Configure package for GitHub Packages
+      run: |
+        # Update package.json to point to GitHub Packages registry
+        npm pkg set publishConfig.registry=https://npm.pkg.github.com
+        npm pkg set publishConfig.@chalix:registry=https://npm.pkg.github.com
+        npm pkg set publishConfig.access=public
+        
+        # Set version based on git tag or commit
+        if [[ $GITHUB_REF == refs/tags/v* ]]; then
+          VERSION=${GITHUB_REF#refs/tags/v}
+          npm pkg set version=$VERSION
+        else
+          # Use commit-based version for non-tag pushes
+          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          npm pkg set version="0.0.0-dev.$TIMESTAMP.$SHORT_SHA"
+        fi
+
+    - name: Publish to GitHub Packages (Public)
+      run: npm publish --access public
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Output published version
+      run: |
+        PACKAGE_VERSION=$(npm pkg get version | tr -d '"')
+        echo "Published version: $PACKAGE_VERSION"
+        echo "::notice title=Published::Package @chalix/frontend-component-header@$PACKAGE_VERSION published successfully"
