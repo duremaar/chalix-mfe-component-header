@@ -54,7 +54,7 @@ jobs:
       with:
         node-version: '18'
         registry-url: 'https://npm.pkg.github.com'
-        scope: '@chalix'
+        scope: '@alimento-team'
         cache: 'npm'
 
     - name: Install dependencies
@@ -73,7 +73,7 @@ jobs:
       run: |
         # Update package.json to point to GitHub Packages registry
         npm pkg set publishConfig.registry=https://npm.pkg.github.com
-        npm pkg set publishConfig.@chalix:registry=https://npm.pkg.github.com
+        npm pkg set publishConfig.@alimento-team:registry=https://npm.pkg.github.com
         npm pkg set publishConfig.access=public
         
         # Set version based on git tag or commit
@@ -96,4 +96,4 @@ jobs:
       run: |
         PACKAGE_VERSION=$(npm pkg get version | tr -d '"')
         echo "Published version: $PACKAGE_VERSION"
-        echo "::notice title=Published::Package @chalix/frontend-component-header@$PACKAGE_VERSION published successfully"
+        echo "::notice title=Published::Package @alimento-team/chalix-frontend-component-header@$PACKAGE_VERSION published successfully"

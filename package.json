@@ -1,11 +1,11 @@
 {
-  "name": "@chalix/frontend-component-header",
+  "name": "@alimento-team/chalix-frontend-component-header",
   "version": "1.0.0",
   "description": "The standard header for Open edX",
   "main": "dist/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
-    "@chalix:registry": "https://npm.pkg.github.com",
+    "@alimento-team:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "scripts": {
