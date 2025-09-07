@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/Alimento-Team/chalix-mfe-component-header#readme",
   "devDependencies": {
+    "@babel/preset-typescript": "^7.22.0",
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
     "@edx/browserslist-config": "^1.1.1",
     "@edx/frontend-platform": "^8.3.1",
