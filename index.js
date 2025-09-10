@@ -1,12 +1,11 @@
 // CommonJS entry point for Chalix Header Component
-// This is a temporary stub for webpack compatibility
+const React = require('react');
 
 module.exports = {
   default: function ChalixHeaderDefault() { 
-    return require('react').createElement('div', {}, 'Chalix Header Loading...'); 
+    return React.createElement('div', {}, 'Chalix Header Loading...'); 
   },
   ChalixHeader: function ChalixHeader(props) {
-    const React = require('react');
     
     return React.createElement('header', { 
       className: 'chalix-header',
