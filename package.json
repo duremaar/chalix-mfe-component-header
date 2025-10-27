@@ -1,11 +1,11 @@
 {
-  "name": "@alimento-team/chalix-frontend-component-header",
+  "name": "@duremaar/chalix-frontend-component-header",
   "version": "1.0.0",
   "description": "The standard header for Open edX",
   "main": "dist/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
-    "@alimento-team:registry": "https://npm.pkg.github.com",
+    "@duremaar:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "scripts": {
@@ -25,14 +25,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alimento-Team/chalix-mfe-component-header.git"
+    "url": "git+https://github.com/duremaar/chalix-mfe-component-header.git"
   },
   "author": "Alimento-Team",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/Alimento-Team/chalix-mfe-component-header/issues"
+    "url": "https://github.com/duremaar/chalix-mfe-component-header/issues"
   },
-  "homepage": "https://github.com/Alimento-Team/chalix-mfe-component-header#readme",
+  "homepage": "https://github.com/duremaar/chalix-mfe-component-header#readme",
   "devDependencies": {
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
     "@edx/browserslist-config": "^1.1.1",
