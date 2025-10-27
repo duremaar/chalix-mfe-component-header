@@ -50,7 +50,7 @@ const Header = ({
   mainMenuItems, secondaryMenuItems, userMenuItems,
 }) => {
   const { authenticatedUser, config } = useContext(AppContext);
-  const intl = useIntl();
+  const intl = useIntl();;
 
   const defaultMainMenu = [
     {
